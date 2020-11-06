@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<meta charset="UTF-8">
+<title>IMDB Main Page</title>
+
+{% endblock %}\
+
+{% block body %}
+
+<div>
+    {% for all_actors, result in movies %}
+
+        <h1>{{ result.primarytitle }}</h1>
+
+
+            {% for i in all_actors %}
+            <p> {{i.primaryname}}</p>
+
+            {% endfor %}
+
+    {% endfor %}
+</div>
+
+{% endblock%}

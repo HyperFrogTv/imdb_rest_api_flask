@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+
+{% block head %}
+
+<title> IMDB Main Page </title>
+
+{% endblock %}
+
+{% block body %}
+<form action="/" method="POST">
+
+  <label for="type">Choose what you want to search for</label>
+
+  <select id="type" name="types">
+    <option value="year">Year</option>
+    <option value="genre">Genre</option>
+    <option value="actor">Actor name</option>
+  </select>
+
+  <input type="text" name="phrase" id="phrase"/>
+
+  <input type="submit" value="search">
+</form>
+
+
+
+<div>
+    {% for all_actors, result in movies %}
+
+        <h1>{{ result.primaryTitle }}</h1>
+        <h1>{{ result.primaryName }}</h1>
+
+            {% for i in all_actors %}
+            <p> {{i.primaryName}}</p>
+            <p> {{i.primaryTitle}}</p>
+            {% endfor %}
+
+    {% endfor %}
+</div>
+
+{% endblock%}
